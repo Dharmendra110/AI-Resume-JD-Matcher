@@ -15,7 +15,6 @@ app.use(cors());
 app.use(express.json());
 
 const API_KEY = process.env.OPENROUTER_API_KEY;
-console.log("API KEY:", process.env.OPENROUTER_API_KEY);
 let storedResume = null;
 
 // --------------------
@@ -202,6 +201,8 @@ app.post("/calculateScore", async (req, res) => {
   }
 });
 
-app.listen(9000, () => {
-  console.log("✅ Server running on http://localhost:9000");
+const PORT = process.env.PORT || 9000;
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });
