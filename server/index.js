@@ -105,16 +105,16 @@ ${resumeText}
             },
           ],
           temperature: 0.2,
-           max_tokens:700,
+          max_tokens: 700,
         },
         {
           headers: {
             Authorization: `Bearer ${API_KEY}`,
             "Content-Type": "application/json",
-            "HTTP-Referer": "http://localhost:9000",
+            "HTTP-Referer": "https://ai-resume-jd-matcher-wc5u.onrender.com",
             "X-Title": "ATS Checker",
           },
-        }
+        },
       );
 
       console.log(`✅ Success with ${model}`);
@@ -123,10 +123,7 @@ ${resumeText}
     } catch (err) {
       console.error(`❌ ${model} failed`);
       console.error("Status:", err.response?.status);
-      console.error(
-        "Data:",
-        JSON.stringify(err.response?.data, null, 2)
-      );
+      console.error("Data:", JSON.stringify(err.response?.data, null, 2));
       console.error("Message:", err.message);
 
       // Try next model
@@ -141,8 +138,8 @@ ${resumeText}
 // Calculate Score
 // --------------------
 app.post("/calculateScore", async (req, res) => {
-     console.log("✅ /calculateScore hit");
-    console.log(req.body);
+  console.log("✅ /calculateScore hit");
+  console.log(req.body);
   try {
     if (!storedResume) {
       return res.json({

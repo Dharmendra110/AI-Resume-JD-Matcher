@@ -7,6 +7,8 @@ function App() {
   const [resumeName, setResumeName] = useState("");
 
   // Check if running inside Chrome Extension
+const BASE_URL = "https://ai-resume-jd-matcher-wc5u.onrender.com";
+
   const isExtension =
     typeof chrome !== "undefined" &&
     chrome.runtime &&
@@ -52,7 +54,9 @@ function App() {
       const formData = new FormData();
       formData.append("resume", file);
 
-      const response = await fetch("http://localhost:9000/storeResume", {
+     
+
+     const response = await fetch(`${BASE_URL}/storeResume`, {
         method: "POST",
         body: formData,
       });
@@ -77,7 +81,7 @@ function App() {
 
   const removeResume = async () => {
     try {
-      const response = await fetch("http://localhost:9000/removeResume", {
+     const response = await fetch(`${BASE_URL}/removeResume`, {
         method: "POST",
       });
 

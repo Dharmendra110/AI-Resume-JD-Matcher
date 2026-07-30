@@ -13,25 +13,17 @@
     "service_worker": "background.js"
   },
 
-  "permissions": [
-    "storage",
-    "activeTab",
-    "scripting"
-  ],
+  "permissions": ["storage", "activeTab", "scripting"],
 
   "host_permissions": [
-    "http://localhost:9000/*",
+    "https://ai-resume-jd-matcher-wc5u.onrender.com/*",
     "https://www.linkedin.com/*"
   ],
 
   "content_scripts": [
     {
-      "matches": [
-        "https://www.linkedin.com/jobs/*"
-      ],
-      "js": [
-        "content.js"
-      ]
+      "matches": ["https://www.linkedin.com/jobs/*"],
+      "js": ["content.js"]
     }
   ]
 }

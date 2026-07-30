@@ -1,4 +1,5 @@
-console.log("✅ Background Service Worker Loaded");
+// console.log("✅ Background Service Worker Loaded");
+const BASE_URL = "https://ai-resume-jd-matcher-wc5u.onrender.com";
 
 chrome.runtime.onInstalled.addListener(() => {
     console.log("🚀 Extension Installed");
@@ -31,7 +32,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     console.log("📤 Sending request to backend...");
 
-    fetch("http://localhost:9000/calculateScore", {
+   fetch(`${BASE_URL}/calculateScore`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
